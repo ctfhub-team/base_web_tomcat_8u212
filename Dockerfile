@@ -115,7 +115,9 @@ RUN set -eux; \
 	&& if ! echo "$nativeLines" | grep 'INFO: Loaded APR based Apache Tomcat Native library' >&2; then \
 		echo >&2 "$nativeLines"; \
 		exit 1; \
-	fi
+	fi; \
+	# Clear Webapps
+	rm -rf /usr/local/tomcat/webapps/*;
 
 EXPOSE 80
 
